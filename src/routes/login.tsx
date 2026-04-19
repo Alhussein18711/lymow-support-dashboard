@@ -28,7 +28,7 @@ function LoginPage() {
   try {
     localStorage.setItem("lymow_auth", "1");
 
-    await navigate({ to: "/dashboard" });
+    await navigate({ to: "/" });
   } catch (error) {
     console.error("Navigation error:", error);
     window.location.href = "/dashboard";
