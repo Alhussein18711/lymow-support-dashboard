@@ -1,6 +1,9 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* احذف السطر ده لو مش مثبت الباكدج */
+// @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -41,23 +44,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Ops-tool neutral: Zendesk Explore / Linear-leaning. Cool grays + blue accent. */
+/* Theme */
 :root {
   --radius: 0.5rem;
 
@@ -70,10 +59,8 @@
   --popover: oklch(0.225 0.009 250);
   --popover-foreground: oklch(0.96 0.004 250);
 
-  /* Cool steel-blue accent — calm, ops-friendly */
   --primary: oklch(0.66 0.16 245);
   --primary-foreground: oklch(0.99 0.003 250);
-  --primary-glow: oklch(0.72 0.17 245);
 
   --secondary: oklch(0.27 0.01 250);
   --secondary-foreground: oklch(0.96 0.004 250);
@@ -87,36 +74,9 @@
   --destructive: oklch(0.62 0.21 22);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --success: oklch(0.7 0.16 152);
-  --success-foreground: oklch(0.18 0.01 250);
-
-  --warning: oklch(0.78 0.15 78);
-  --warning-foreground: oklch(0.18 0.02 60);
-
-  --info: oklch(0.7 0.13 230);
-  --info-foreground: oklch(0.18 0.01 250);
-
   --border: oklch(0.28 0.008 250);
   --input: oklch(0.25 0.01 250);
   --ring: oklch(0.66 0.16 245);
-
-  --chart-1: oklch(0.66 0.16 245);   /* blue */
-  --chart-2: oklch(0.7 0.16 152);    /* green */
-  --chart-3: oklch(0.78 0.15 78);    /* amber */
-  --chart-4: oklch(0.62 0.21 22);    /* red */
-  --chart-5: oklch(0.65 0.18 300);   /* violet */
-
-  --sidebar: oklch(0.155 0.008 250);
-  --sidebar-foreground: oklch(0.85 0.008 250);
-  --sidebar-primary: oklch(0.66 0.16 245);
-  --sidebar-primary-foreground: oklch(0.99 0.003 250);
-  --sidebar-accent: oklch(0.23 0.01 250);
-  --sidebar-accent-foreground: oklch(0.96 0.004 250);
-  --sidebar-border: oklch(0.235 0.008 250);
-  --sidebar-ring: oklch(0.66 0.16 245);
-
-  --gradient-primary: linear-gradient(135deg, oklch(0.66 0.16 245), oklch(0.62 0.18 265));
-  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.03) inset, 0 1px 2px 0 oklch(0 0 0 / 0.25);
 }
 
 @layer base {
@@ -127,33 +87,11 @@
   html {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "cv11", "ss01";
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     min-height: 100vh;
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-family: var(--font-display);
-    letter-spacing: -0.015em;
-  }
-
-  /* Tabular numbers everywhere by default for data-readability */
-  table, .tabular-nums {
-    font-variant-numeric: tabular-nums;
-  }
-}
-
-@layer utilities {
-  .bg-gradient-primary {
-    background: var(--gradient-primary);
-  }
-  .shadow-card {
-    box-shadow: var(--shadow-card);
   }
 }
