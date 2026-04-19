@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* احذف السطر ده لو مش مثبت الباكدج */
-// @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -46,7 +43,6 @@
   --color-ring: var(--ring);
 }
 
-/* Theme */
 :root {
   --radius: 0.5rem;
 
