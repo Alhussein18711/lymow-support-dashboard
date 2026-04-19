@@ -21,14 +21,21 @@ function LoginPage() {
   const [password, setPassword] = useState("••••••••");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      localStorage.setItem("lymow_auth", "1");
-      navigate({ to: "/dashboard" });
-    }, 500);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    localStorage.setItem("lymow_auth", "1");
+
+    await navigate({ to: "/dashboard" });
+  } catch (error) {
+    console.error("Navigation error:", error);
+    window.location.href = "/dashboard";
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="relative flex min-h-screen items-center justify-center px-4">
